@@ -14,4 +14,4 @@ ENV SITE_DIR="/var/www"
 WORKDIR $SITE_DIR
 COPY --from=builder /go/bin/hugo /usr/local/bin/hugo
 RUN hugo new site $SITE_DIR
-COPY --from=builder /var/hugo/themes/hugo-book $SITE_DIR/themes/hugo-book
+COPY --from=builder /var/hugo/themes/docsy $SITE_DIR/themes/docsy
