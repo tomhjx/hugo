@@ -7,7 +7,7 @@ RUN mkdir $HOME/src && \
     echo $PATH && \
     hugo version && \
     which go hugo && \
-    git clone https://github.com/google/docsy/ /var/hugo/themes/docsy
+    git clone https://github.com/google/docsy.git /var/hugo/themes/docsy
 
 FROM debian:bullseye-slim
 ENV SITE_DIR="/var/www"
