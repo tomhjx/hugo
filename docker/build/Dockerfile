@@ -18,3 +18,12 @@ ENV SITE_DIR="/var/www"
 WORKDIR $SITE_DIR
 COPY --from=builder /go/bin/hugo /usr/local/bin/hugo
 COPY --from=builder $SITE_DIR $SITE_DIR
+RUN apt update && \
+    apt-get install -y curl && \
+    curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
+    apt-get install -y nodejs && \
+    node -v && \
+    npm -v && \
+    cd $SITE_DIR && \
+    npm install -D autoprefixer postcss-cli postcss && \
+    npm audit fix
