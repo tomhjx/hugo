@@ -8,12 +8,13 @@ RUN mkdir $HOME/src && \
     echo $PATH && \
     hugo version && \
     which go hugo && \
-    # git clone --branch v0.1.0 https://github.com/google/docsy.git /var/hugo/themes/docsy
-    git clone https://github.com/google/docsy.git /var/hugo/themes/docsy
+    hugo new site $SITE_DIR && \
+    git clone https://github.com/google/docsy.git $SITE_DIR/themes/docsy && \
+    cd $SITE_DIR/themes/docsy && \
+    git submodule update --init --recursive
 
 FROM debian:bullseye-slim
 ENV SITE_DIR="/var/www"
 WORKDIR $SITE_DIR
 COPY --from=builder /go/bin/hugo /usr/local/bin/hugo
-RUN hugo new site $SITE_DIR
-COPY --from=builder /var/hugo/themes/docsy $SITE_DIR/themes/docsy
+COPY --from=builder $SITE_DIR $SITE_DIR
