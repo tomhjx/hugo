@@ -9,7 +9,7 @@ RUN mkdir $HOME/src && \
     hugo version && \
     which go hugo && \
     hugo new site $SITE_DIR && \
-    git clone --branch v0.4.0 https://github.com/google/docsy.git $SITE_DIR/themes/docsy && \
+    git clone https://github.com/google/docsy.git $SITE_DIR/themes/docsy && \
     cd $SITE_DIR/themes/docsy && \
     git submodule update --init --recursive
 
