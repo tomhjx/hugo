@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# https://devconnected.com/how-to-delete-local-and-remote-tags-on-git/
+
 ver1i=2
 
 ver1s=(0 1 2)
