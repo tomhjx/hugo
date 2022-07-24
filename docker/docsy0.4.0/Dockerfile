@@ -1,4 +1,4 @@
-FROM golang:1.17.5-bullseye as builder
+FROM golang:1.18.3-bullseye as builder
 ENV SITE_DIR="/var/www"
 RUN mkdir $HOME/src && \
     cd $HOME && \
@@ -9,7 +9,7 @@ RUN mkdir $HOME/src && \
     hugo version && \
     which go hugo && \
     hugo new site $SITE_DIR && \
-    git clone https://github.com/google/docsy.git $SITE_DIR/themes/docsy && \
+    git clone --branch v0.4.0 https://github.com/google/docsy.git $SITE_DIR/themes/docsy && \
     cd $SITE_DIR/themes/docsy && \
     git submodule update --init --recursive
 
