@@ -26,4 +26,6 @@ RUN apt update && \
     npm -v && \
     cd $SITE_DIR && \
     npm install -D autoprefixer postcss-cli postcss && \
-    npm audit fix
+    npm audit fix && \
+    cd $SITE_DIR/themes/docsy && \
+    npm i bootstrap
