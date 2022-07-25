@@ -25,5 +25,5 @@ RUN apt update && \
     node -v && \
     npm -v && \
     cd $SITE_DIR && \
-    npm install -D autoprefixer postcss-cli postcss@^8.1.0 && \
+    npm install -D autoprefixer postcss-cli postcss && \
     npm audit fix
