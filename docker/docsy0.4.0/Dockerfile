@@ -1,4 +1,4 @@
-FROM golang:1.17.5-bullseye as builder
+FROM golang:1.18.3-bullseye as builder
 ENV SITE_DIR="/var/www"
 RUN mkdir $HOME/src && \
     cd $HOME && \
@@ -26,4 +26,6 @@ RUN apt update && \
     npm -v && \
     cd $SITE_DIR && \
     npm install -D autoprefixer postcss-cli postcss && \
-    npm audit fix
+    npm audit fix && \
+    cd $SITE_DIR/themes/docsy && \
+    npm i bootstrap
